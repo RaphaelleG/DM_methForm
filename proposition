@@ -1,0 +1,35 @@
+// ceci est un fichier brouillon
+
+1.  G(attente => (not Vchoix && not Vthe && not Vcafe && not Vcapuccino && not Vsucre))
+    G(fin => (not Vchoix && not Vthe && not Vcafe && not Vcapuccino && not Vsucre))
+
+2.  G(attente => (not fin && not utilisation) && fin =>(not utilisation && not attente) && utilisation =>(not fin && not attente))
+
+3.
+
+4.  G(utilisation => (P50 || P1 || P2))
+
+5.  G(fin => (not P50 && not P1 && not P2))
+    G(attente =>(not P50 && not P1 && not P2))
+
+6.  G(utilisation && Bvalid && not Vchoix => fin)
+
+7.
+
+8.  G(Bannul => attente)
+
+9.  GF(attente)
+
+10. G(utilisation && Bsucre && not Vsucre => Vsucre)
+
+11. G(utilisation && Vchoix && Bthe && (P50 || P1 || P2) => (not Vchoix && Vthe))
+    G(utilisation && Vchoix && Bcafe && (P1 || P2) => (not Vchoix && Vcafe))
+    G(utilisation && Vchoix && Bcapuccino && P2 => (not Vchoix && Vcapuccino))
+
+12.
+
+13.
+14.
+15.
+16.
+17.
