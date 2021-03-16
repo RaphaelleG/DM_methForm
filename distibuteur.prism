@@ -1,0 +1,50 @@
+mdp
+
+//0 : init
+
+//1-10 : P50
+//11-27 : P1
+//28-51 : P2
+
+//52-53 : the
+//54-55 : cafe
+//56-57 : cap
+
+//58-75 : Bannul
+
+module Distributeur
+	s:[0..75] init 0;
+	
+	[]s=0 -> 0.2:(s'=1) + 0.4:(s'=11) + 0.6:(s'=28);
+	
+endmodule
+
+
+label "initialisation"= s=0;
+label "utilisation" = (s>0 & s<53) | s>57;
+label "fin" = s>51 & s<57;
+
+label "P50"= s>0 & s<11;
+label "P1"= s>10 & s<28;
+label "P2"= s>27 & s<52;
+
+label "Bthe" = s=2 | s=7 | s=12 | s=19 | s=29 | s=35;
+label "Bcafe" = s=14 | s=20 | s=31 | s=36;
+label "Bcap" = s=32 | s=38;
+
+label "Bsucre" = s=3 | s=6 | s=13 | s=18 | s=21 | s=30 | s=40 | s=43 | s=45;
+label "Bvalidation" = s=9 | s=10 | s=22 | s=25 | s=26 | s=27;
+label "Bannul" = s>57;
+
+label "Vchoix" = s=1 | s=2 | s=3 | s=5 | s=7 | s=11 | s=12 | s=13 | s=14 | s=16 | s=19 | s=20 | (s>27 & s < 34) | s=35 | s=36 | s=38;
+label "Vsucre" = s=5 | s=7 | s=8 | s=10 | s=16 | s=19 | s=20 | (s>22 & s<27) | s=33 | s=35 | s=36 | s=38 | s=41 | s=42 | s=44 | s=47 | s=48 | s=50;
+
+label "Vthe" = s=4 | s=6 | (s>7 & s<11) | s=15 | s= 18 | s=22 | s=23 | s=25 | s=34 | s=40 | s=41 | s=46 | s=47;
+label "Vcafe" = s=17 | s=21 | s=24 | s=26 | s=27 | s=37 | s=42 | s=43 | s=48 | s=49;
+label "Vcap" = s=39 | s=44 | s=45 | s=50 | s=51;
+
+label "the" = s=52 | s=53;
+label "cafe" = s=54 | s=55;
+label "cap" = s=56 | s=57;
+
+label "sucre" = s=53 | s=55 | s=57;
