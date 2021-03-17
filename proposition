@@ -1,43 +1,43 @@
-cap// ceci est un fichier brouillon
+// ceci est un fichier brouillon
 
-1. A[G(attente => (not Vchoix && not Vthe && not Vcafe && not Vcap && not Vsucre))]
-   A[G(fin => (not Vchoix && not Vthe && not Vcafe && not Vcap && not Vsucre))]
+1. A[G("attente => (!("Vchoix") & !("Vthe") & !("Vcafe") & !("Vcap") & !("Vsucre")))]
+   A[G("fin" => (!("Vchoix") & !("Vthe") & !("Vcafe") & !("Vcap") & !("Vsucre")))]
 
-2.  A[G((attente => (not fin && not utilisation)) && (fin =>(not utilisation && not attente)) && (utilisation =>(not fin && not attente)))]
+2.  A[G(("attente" => (!("fin") & !("utilisation"))) & ("fin" =>(!("utilisation") & !("attente"))) & ("utilisation" =>(!("fin") & !("attente"))))]
 
-3.  A[G[((attente && (P50 || P1 || P1)=> X(utilisation && Vchoix))]]
+3.  A[G(("attente" & ("P50" | "P1" | "P2")) => (X("utilisation" & "Vchoix")))]
 
-4.  A[G(utilisation => (P50 || P1 || P2))]
+4.  A[G("utilisation" => ("P50" | "P1" | "P2"))]
 
-5.  A[G(fin => (not P50 && not P1 && not P2))]
-    A[G(attente =>(not P50 && not P1 && not P2))]
+5.  A[G("fin" => (!("P50") & !("P1") & !("P2")))]
+    A[G("attente" =>(!("P50") & !("P1") & !("P2")))]
 
-6.  A[G(utilisation && Bvalid && not Vchoix => X(fin))]
+6.  A[G(("utilisation" & "Bvalid" & !("Vchoix")) => (X("fin")))]
 
-7.  A[G[(fin && the)=>((fin && the) U attente)]]
-    A[G[(fin && cafe)=>((fin && cafe) U attente)]]
-    A[G[(fin && cap)=>((fin && cap) U attente)]]
+7.  A[G(("fin" & "the")=>(("fin" & "the") U "attente"))]
+    A[G(("fin" & "cafe")=>(("fin" & "cafe") U "attente"))]
+    A[G(("fin" & "cap")=>(("fin" & "cap") U "attente"))]
 
-8.  A[G(Bannul => X(attente))]
+8.  A[G("Bannul" => (X("attente")))]
 
-9.  A[GF(attente)]
+9.  A[G(F("attente"))]
 
-10. A[G(utilisation && Bsucre && not Vsucre => X(Vsucre))]
+10. A[G("utilisation" & "Bsucre" & !("Vsucre") => (X("Vsucre")))]
 
-11. A[G(utilisation && Vchoix && Bthe && (P50 || P1 || P2) => X(not Vchoix && Vthe))]
-    A[G(utilisation && Vchoix && Bcafe && (P1 || P2) => X(not Vchoix && Vcafe))]
-    A[G(utilisation && Vchoix && Bcap && P2 => X(not Vchoix && Vcap))]
+11. A[G("utilisation" &"Vchoix" & "Bthe" & ("P50" | "P1" | "P2") => (X(!("Vchoix") &"Vthe")))]
+    A[G("utilisation" &"Vchoix" & "Bcafe" & ("P1" | "P2") => (X(!("Vchoix") &"Vcafe")))]
+    A[G("utilisation" &"Vchoix" & "Bcap" & "P2" => (X(!("Vchoix") &"Vcap")))]
 
-12. A[G[(utilisation && Vsucre) => (Vsucre U (attente || fin))]]
+12. A[G(("utilisation" &"Vsucre") => ("Vsucre" U ("attente" |"fin")))]
 
-13. A[G[(not Vthe) || (Bthe => X(Vthe))]]
-    A[G[(not Vcafe) || (Bcafe => X(Vcafe))]]
-    A[G[(not Vcap) || (Bcap => X(Vcap))]]
+13. A[G((!("Vthe")) | ("Bthe" => (X("Vthe"))))]
+    A[G((!("Vcafe")) | ("Bcafe" => (X("Vcafe"))))]
+    A[G((!("Vcap")) | ("Bcap" => (X("Vcap"))))]
 
-14. A[G[((the || cafe || cap) => fin) && (fin => (the || cafe || cap))]]
+14. A[G((("the" | "cafe" | "cap") =>"fin") & ("fin" => ("the" | "cafe" | "cap")))]
 
-15. A[G[(the => (not cafe and not cap)) && (cafe => (not the && not cap)) && (cap => (not the && not cafe))]]
+15. A[G(("the" => (!("cafe") & ! "cap")) & ("cafe" => (!("the") & !("cap"))) & ("cap" => (!("the") & !("cafe"))))]
 
-16. A[G[(not the && not cafe && not cap) || (P2 U cap) || ((P1 || P2) U cafe)) || ((P50 || P1 || P2) U the)]]
+16. A[G((! "the" & ! "cafe" & ! "cap") | ("P2" U "cap") | (("P1" | "P2") U "cafe") | (("P50" | "P1" | "P2") U "the"))]
 
-17. A[G[(not sucre) || (Vsucre => (Vsucre U sucre)]]
+17. A[G((! "sucre") | ("Vsucre" => ("Vsucre" U "sucre")))]

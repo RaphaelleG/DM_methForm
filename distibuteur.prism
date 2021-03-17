@@ -20,7 +20,7 @@ module Distributeur
 endmodule
 
 
-label "initialisation"= s=0;
+label "attente"= s=0;
 label "utilisation" = (s>0 & s<53) | s>57;
 label "fin" = s>51 & s<57;
 
@@ -33,7 +33,7 @@ label "Bcafe" = s=14 | s=20 | s=31 | s=36;
 label "Bcap" = s=32 | s=38;
 
 label "Bsucre" = s=3 | s=6 | s=13 | s=18 | s=21 | s=30 | s=40 | s=43 | s=45;
-label "Bvalidation" = s=9 | s=10 | s=22 | s=25 | s=26 | s=27;
+label "Bvalid" = s=9 | s=10 | s=22 | s=25 | s=26 | s=27;
 label "Bannul" = s>57;
 
 label "Vchoix" = s=1 | s=2 | s=3 | s=5 | s=7 | s=11 | s=12 | s=13 | s=14 | s=16 | s=19 | s=20 | (s>27 & s < 34) | s=35 | s=36 | s=38;

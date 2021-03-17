@@ -1,0 +1,75 @@
+// Prop 1.1
+A[G("attente" => (!("Vchoix") & !("Vthe") & !("Vcafe") & !("Vcap") & !("Vsucre")))] 
+
+// Prop 1.2
+A[G("fin" => (!("Vchoix") & !("Vthe") & !("Vcafe") & !("Vcap") & !("Vsucre")))]
+
+// Prop 2
+A[G(("attente" => (!("fin") & !("utilisation"))) & ("fin" =>(!("utilisation") & !("attente"))) & ("utilisation" =>(!("fin") & !("attente"))))]
+
+// Prop 3
+A[G(("attente" & ("P50" | "P1" | "P2")) => (X("utilisation" & "Vchoix")))]
+
+// Prop 4
+A[G("utilisation" => ("P50" | "P1" | "P2"))]
+
+// Prop 5.1
+A[G("fin" => (!("P50") & !("P1") & !("P2")))]
+
+// Prop 5.2
+A[G("attente" =>(!("P50") & !("P1") & !("P2")))]
+
+// Prop 6
+A[G(("utilisation" & "Bvalid" & !("Vchoix")) => (X("fin")))]
+
+// Prop 7.1
+A[G(("fin" & "the")=>(("fin" & "the") U "attente"))]
+
+// Prop 7.2
+A[G(("fin" & "cafe")=>(("fin" & "cafe") U "attente"))]
+
+// Prop 7.3
+A[G(("fin" & "cap")=>(("fin" & "cap") U "attente"))]
+
+// Prop 8
+A[G("Bannul" => (X("attente")))]
+
+// Prop 9
+A[G(F("attente"))]
+
+// Prop 10
+A[G("utilisation" & "Bsucre" & !("Vsucre") => (X("Vsucre")))]
+
+// Prop 11.1
+A[G("utilisation" &"Vchoix" & "Bthe" & ("P50" | "P1" | "P2") => (X(!("Vchoix") &"Vthe")))]
+
+// Prop 11.2
+A[G("utilisation" &"Vchoix" & "Bcafe" & ("P1" | "P2") => (X(!("Vchoix") &"Vcafe")))]
+
+// Prop 11.3
+A[G("utilisation" &"Vchoix" & "Bcap" & "P2" => (X(!("Vchoix") &"Vcap")))]
+
+// Prop 12
+A[G(("utilisation" &"Vsucre") => ("Vsucre" U ("attente" |"fin")))]
+
+// Prop 13.1
+A[G((!("Vthe")) | ("Bthe" => (X("Vthe"))))]
+
+// Prop 13.2
+A[G((!("Vcafe")) | ("Bcafe" => (X("Vcafe"))))]
+
+// Prop 13.3
+A[G((!("Vcap")) | ("Bcap" => (X("Vcap"))))]
+
+// Prop 14
+A[G((("the" | "cafe" | "cap") =>"fin") & ("fin" => ("the" | "cafe" | "cap")))]
+
+// Prop 15
+A[G(("the" => (!("cafe") & ! "cap")) & ("cafe" => (!("the") & !("cap"))) & ("cap" => (!("the") & !("cafe"))))] 
+
+// Prop 16
+A[G((! "the" & ! "cafe" & ! "cap") | ("P2" U "cap") | (("P1" | "P2") U "cafe") | (("P50" | "P1" | "P2") U "the"))]
+
+// Prop 17
+A[G((! "sucre") | ("Vsucre" => ("Vsucre" U "sucre")))]
+
