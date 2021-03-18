@@ -102,17 +102,28 @@ module Distributeur
 	[]s=45->(s'=44);
 	[]s=39->(s'=51);
 	[]s=51->(s'=56);
+
+	//retour etat initial
+	[]s=52->(s'=0);
+	[]s=53->(s'=0);
+	[]s=54->(s'=0);
+	[]s=55->(s'=0);
+	[]s=56->(s'=0);
+	[]s=57->(s'=0);
+
+	//Bannul
+	[]s>57->(s'=0);
 	
 endmodule
 
 
 label "attente"= s=0;
-label "utilisation" = (s>0 & s<53) | s>57;
-label "fin" = s>51 & s<57;
+label "utilisation" = (s>0 & s<52) | s>57;
+label "fin" = s>51 & s<58;
 
-label "P50"= s>0 & s<11;
-label "P1"= s>10 & s<28;
-label "P2"= s>27 & s<52;
+label "P50"= (s>0 & s<11) | (s>57 & s < 62);
+label "P1"= (s>10 & s<28) | (s>61 & s<68);
+label "P2"= (s>27 & s<52) | s>67;
 
 label "Bthe" = s=2 | s=7 | s=12 | s=19 | s=29 | s=35;
 label "Bcafe" = s=14 | s=20 | s=31 | s=36;
@@ -122,12 +133,12 @@ label "Bsucre" = s=3 | s=6 | s=13 | s=18 | s=21 | s=30 | s=40 | s=43 | s=45;
 label "Bvalid" = s=9 | s=10 | s=22 | s=25 | s=26 | s=27;
 label "Bannul" = s>57;
 
-label "Vchoix" = s=1 | s=2 | s=3 | s=5 | s=7 | s=11 | s=12 | s=13 | s=14 | s=16 | s=19 | s=20 | (s>27 & s < 34) | s=35 | s=36 | s=38;
-label "Vsucre" = s=5 | s=7 | s=8 | s=10 | s=16 | s=19 | s=20 | (s>22 & s<27) | s=33 | s=35 | s=36 | s=38 | s=41 | s=42 | s=44 | s=47 | s=48 | s=50;
+label "Vchoix" = s=1 | s=2 | s=3 | s=5 | s=7 | s=11 | s=12 | s=13 | s=14 | s=16 | s=19 | s=20 | (s>27 & s < 34) | s=35 | s=36 | s=38 | s=58 | s=60 | s=62 | s=64 | s=68 | s=69;
+label "Vsucre" = s=5 | s=7 | s=8 | s=10 | s=16 | s=19 | s=20 | (s>22 & s<27) | s=33 | s=35 | s=36 | s=38 | s=41 | s=42 | s=44 | s=47 | s=48 | s=50 | s=60 | s=61 | s=64 | s=66 | s=67 | s=69 | s=73 | s=74 | s=75;
 
-label "Vthe" = s=4 | s=6 | (s>7 & s<11) | s=15 | s= 18 | s=22 | s=23 | s=25 | s=34 | s=40 | s=41 | s=46 | s=47;
-label "Vcafe" = s=17 | s=21 | s=24 | s=26 | s=27 | s=37 | s=42 | s=43 | s=48 | s=49;
-label "Vcap" = s=39 | s=44 | s=45 | s=50 | s=51;
+label "Vthe" = s=4 | s=6 | (s>7 & s<11) | s=15 | s= 18 | s=22 | s=23 | s=25 | s=34 | s=40 | s=41 | s=46 | s=47 | s=59 | s=61 | s=63 | s=66 | s=70 | s=73;
+label "Vcafe" = s=17 | s=21 | s=24 | s=26 | s=27 | s=37 | s=42 | s=43 | s=48 | s=49 | s=65 | s=67 | s=71 | s=74;
+label "Vcap" = s=39 | s=44 | s=45 | s=50 | s=51 | s=72 | s=75;
 
 label "the" = s=52 | s=53;
 label "cafe" = s=54 | s=55;
