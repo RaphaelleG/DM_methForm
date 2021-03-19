@@ -71,5 +71,5 @@ A [ G (("the"=>(!("cafe")&!"cap"))&("cafe"=>(!("the")&!("cap")))&("cap"=>(!("the
 A [ G ((!"the"&!"cafe"&!"cap")|("P2" U "cap")|(("P1"|"P2") U "cafe")|(("P50"|"P1"|"P2") U "the")) ]
 
 // Prop 17
-A [ G ((!"sucre")|("Vsucre"=>("Vsucre" U "sucre"))) ]
+A [ G ((!"sucre")|("Vsucre" &(X("fin")) => (X("sucre")) )) ]
 
