@@ -53,13 +53,13 @@ A [ G ("utilisation"&"Vchoix"&"Bcap"&"P2"=>(X (!("Vchoix")&"Vcap"))) ]
 A [ G (("utilisation"&"Vsucre")=>(("Vsucre") U ("attente"|"fin"))) ]
 
 // Prop 13.1
-A [ G ((!("Vthe"))|("Bthe"=>(X ("Vthe")))) ]
+A [ G((!("Vthe")) | ((!("Vthe") & !("Bthe")) U (("Bthe" & (X("Vthe"))) U ("Vthe"))))]
 
 // Prop 13.2
-A [ G ((!("Vcafe"))|("Bcafe"=>(X ("Vcafe")))) ]
+A [G ((!("Vcafe")) | ((!("Vcafe") & !("Bcafe")) U (("Bcafe" & (X("Vcafe"))) U ("Vcafe"))))]
 
 // Prop 13.3
-A [ G ((!("Vcap"))|("Bcap"=>(X ("Vcap")))) ]
+A [ G((!("Vcap")) | ((!("Vcap") & !("Bcap")) U (("Bcap" & (X("Vcap"))) U ("Vcap"))))]
 
 // Prop 14
 A [ G ((("the"|"cafe"|"cap")=>"fin")&("fin"=>("the"|"cafe"|"cap"))) ]
@@ -71,5 +71,5 @@ A [ G (("the"=>(!("cafe")&!"cap"))&("cafe"=>(!("the")&!("cap")))&("cap"=>(!("the
 A [ G ((!"the"&!"cafe"&!"cap")|("P2" U "cap")|(("P1"|"P2") U "cafe")|(("P50"|"P1"|"P2") U "the")) ]
 
 // Prop 17
-A [ G ((!"sucre")|("Vsucre" &(X("fin")) => (X("sucre")) )) ]
+A [ G((!("sucre")) | ((!("sucre") & !("Vsucre")) U ((!("sucre") & "Bsucre" & !("Vsucre") & (X("Vsucre")) ) U (("Vsucre" & (X("fin"))) U ("fin" & "sucre")))))]
 

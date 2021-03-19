@@ -30,9 +30,9 @@
 
 12. A[G(("utilisation" &"Vsucre") => ("Vsucre" U ("attente" |"fin")))]
 
-13. A[G((!("Vthe")) | ("Bthe" => (X("Vthe"))))]
-    A[G((!("Vcafe")) | ("Bcafe" => (X("Vcafe"))))]
-    A[G((!("Vcap")) | ("Bcap" => (X("Vcap"))))]
+13. A[G((!("Vthe")) | ((!("Vthe") & !("Bthe")) U (("Bthe" & (X("Vthe"))) U ("Vthe"))))]
+    A[G((!("Vcafe")) | ((!("Vcafe") & !("Bcafe")) U (("Bcafe" & (X("Vcafe"))) U ("Vcafe"))))]
+    A[G((!("Vcap")) | ((!("Vcap") & !("Bcap")) U (("Bcap" & (X("Vcap"))) U ("Vcap"))))]
 
 14. A[G((("the" | "cafe" | "cap") =>"fin") & ("fin" => ("the" | "cafe" | "cap")))]
 
@@ -40,4 +40,4 @@
 
 16. A[G((! "the" & ! "cafe" & ! "cap") | ("P2" U "cap") | (("P1" | "P2") U "cafe") | (("P50" | "P1" | "P2") U "the"))]
 
-17. A[G((! "sucre") | ("Vsucre" => ("Vsucre" U "sucre")))]
+17. A[G((!("sucre")) | ((!("sucre") & !("Vsucre")) U ((!("sucre") & "Bsucre" & !("Vsucre") & (X("Vsucre")) ) U (("Vsucre" & (X("fin"))) U ("fin" & "sucre")))))]
